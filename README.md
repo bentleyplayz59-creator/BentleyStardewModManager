@@ -1,42 +1,31 @@
 # Bentley's Stardew Mod Manager
 
-A custom Android application for managing Stardew Valley mods
-on Android devices running SMAPI.
+A custom Android companion for Stardew Valley on Android.
 
-## Planned features
+## Included in the first build
+- Android Storage Access Framework folder grants with persisted permissions
+- Shared StardewValley and Mods folder selection
+- ZIP extraction into the selected Mods directory, with path traversal checks
+- Installed mod folder and manifest inventory
+- SMAPI log import with error/warning summaries
+- Save XML inspection and core character-stat editing
+- Automatic pre-edit save backups
+- Manual backups and backup restore
+- Dark custom interface and original vector app icon
 
-- Import and inspect mod ZIP archives
-- Install and update mods
-- Remove and back up mods
-- Detect duplicate mods
-- Read and analyze SMAPI logs
-- Identify missing dependencies
-- Inspect mod manifests and versions
-- Manage Stardew Valley save backups
-- Storage Access Framework integration
-- Persistent folder permissions where supported
-- Android storage permission diagnostics
+## Save editor fields
+Character name, gold, health, maximum health, stamina, and maximum stamina.
 
-## Storage locations
+The app validates numeric fields and creates a copy of the original save under StardewValley/BentleyBackups before writing edited XML.
 
-SMAPI launcher data:
-Android/data/abc.smapi.gameloader/
+## Storage notes
+Android's system picker (DocumentsUI) is used. Android may refuse access to Android/data even when a tree picker is used. The app does not claim that All files access bypasses scoped-storage restrictions. Choose the shared StardewValley folder and Mods folder when available.
 
-Shared Stardew Valley data:
-StardewValley/
+## Build
+Requires JDK 17 and Gradle 8.9. Run gradle assembleDebug.
 
-Mods:
-StardewValley/Mods/
-
-## Application ID
-
+## Package
 com.bentleyplayz.stardewmodmanager
 
 ## Developer
-
 Bentley Playz
-
-## Important
-
-The application will not modify files outside explicitly
-authorized locations. Storage access will be checked at runtime.
